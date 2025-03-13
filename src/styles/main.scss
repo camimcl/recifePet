@@ -1,0 +1,49 @@
+@use 'tailwindcss/base';
+@use 'tailwindcss/components';
+@use 'tailwindcss/utilities';
+
+.level-indicator {
+  @apply w-16 h-32 border-2 border-gray-300 rounded-lg relative overflow-hidden;
+  
+  .level-fill {
+    @apply absolute bottom-0 left-0 w-full transition-all duration-300 ease-in-out;
+    background: linear-gradient(to top, #16697A, #3a8a9e);
+  }
+
+  .icon {
+    @apply absolute top-2 left-1/2 transform -translate-x-1/2 text-gray-600;
+  }
+}
+
+.pet-container {
+  @apply flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-blue-50 to-purple-50;
+  
+  .pet-image {
+    @apply w-64 h-64 object-contain transition-all duration-300;
+  }
+}
+
+.action-buttons {
+  @apply fixed bottom-0 left-0 right-0 p-4 flex justify-center gap-4 bg-white/80 backdrop-blur-sm;
+  
+  button {
+    @apply px-6 py-3 rounded-full text-white font-semibold transition-all duration-200
+    hover:transform hover:scale-105 active:scale-95;
+    
+    &.feed {
+      @apply bg-[#489FB5] hover:bg-[#3a8a9e];
+    }
+    
+    &.pet {
+      @apply bg-[#489FB5] hover:bg-[#3a8a9e];
+    }
+    
+    &.play {
+      @apply bg-[#489FB5] hover:bg-[#3a8a9e];
+    }
+    
+    &.clothes {
+      @apply bg-[#489FB5] hover:bg-[#3a8a9e];
+    }
+  }
+}
