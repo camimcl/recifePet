@@ -2,7 +2,7 @@
 
 ## 🎯 Objetivo
 
-O Pet Virtual Conecta Recife é um projeto desenvolvido durante o hackercidão com o propósito de aumentar a base de usuários do aplicativo "Conecta Recife" por meio da gamificação. A proposta inclui um pet virtual interativo inspirado em Tamagotchi e Pou, com foco na cultura local, representada por animais como capivara, rato e caranguejo.
+O Pet Virtual Conecta Recife é um projeto desenvolvido durante o hackercidão com o propósito de aumentar a base de usuários do aplicativo "Conecta Recife" por meio da gamificação. A proposta inclui um pet virtual interativo inspirado em Tamagotchi e Pou, com foco na cultura local, representada por animais como capivara e caranguejo.
 
 ## 🛠 Tecnologias Utilizadas
 
@@ -29,7 +29,7 @@ Focado nos jovens, que são protagonistas na utilização de tecnologias, com
 
 ## 🌟 Futuras Funcionalidades
 
-- Expansão para novos pets (ex: tubarão).
+- Expansão para novos pets.
 - Integração com redes sociais.
 - Sistema de conquistas e missões.
 
