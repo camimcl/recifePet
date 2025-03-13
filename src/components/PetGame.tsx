@@ -4,20 +4,17 @@ import { Heart, Pizza, Shirt, PlayCircle, Coins, Image, Bell, MapPin, Calendar, 
 import { Pet, PetType } from '../types/pet';
 import CapibaraIcon from '../assets/capibara.png';
 import CrabIcon from '../assets/crab.png';
-import SharkIcon from '../assets/shark.png';
 import CapibaraGlassesIcon from '../assets/capibara-glasses.png';
 import CrabGlassesIcon from '../assets/crab-glasses.png';
-import SharkGlassesIcon from '../assets/shark-glasses.png';
+
 
 type IconKey = PetType | `${PetType}-glasses`;
 
 const icons: Record<IconKey, string> = {
   'capibara': CapibaraIcon,
   'crab': CrabIcon,
-  'shark': SharkIcon,
   'capibara-glasses': CapibaraGlassesIcon,
-  'crab-glasses': CrabGlassesIcon,
-  'shark-glasses': SharkGlassesIcon
+  'crab-glasses': CrabGlassesIcon
 };
 
 const backgrounds = [

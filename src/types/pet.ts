@@ -1,4 +1,4 @@
-export type PetType = 'crab' | 'capibara' | 'shark';
+export type PetType = 'crab' | 'capibara';
 
 export interface Pet {
   type: PetType;

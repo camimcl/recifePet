@@ -3,12 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import { PetType } from '../types/pet';
 import CapibaraIcon from '../assets/capibara-icon.png';
 import CrabIcon from '../assets/crab-icon.png';
-import SharkIcon from '../assets/shark-icon.png';
 
 const icons = {
   'capibara':CapibaraIcon,
   'crab': CrabIcon,
-  'shark': SharkIcon
 }
 
 
@@ -22,8 +20,8 @@ const PetSelection: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-purple-50 flex flex-col items-center justify-center p-8">
       <h1 className="text-4xl font-bold text-gray-800 mb-12">Escolha seu Pet</h1>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {['capibara','crab','shark'
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {['capibara','crab'
         ].map((petType) => (
           <button
             key={petType}
