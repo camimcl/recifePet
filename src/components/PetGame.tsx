@@ -9,8 +9,9 @@ import CapibaraGlassesIcon from '../assets/capibara-glasses.png';
 import CrabGlassesIcon from '../assets/crab-glasses.png';
 import SharkGlassesIcon from '../assets/shark-glasses.png';
 
+type IconKey = PetType | `${PetType}-glasses`;
 
-const icons = {
+const icons: Record<IconKey, string> = {
   'capibara': CapibaraIcon,
   'crab': CrabIcon,
   'shark': SharkIcon,
@@ -20,10 +21,10 @@ const icons = {
 };
 
 const backgrounds = [
+  'https://img.freepik.com/vetores-gratis/ilustracao-de-cuba-de-design-plano_23-2149404461.jpg',
+  'https://img.freepik.com/vetores-premium/ilustracao-do-brasil-em-gradiente_23-2151431362.jpg',
   'https://www.quintoandar.com.br/guias/wp-content/uploads/2022/02/Praca-do-Maraco-Zero-Rosa-dos-Ventos-Abre.jpg',
-  'https://images.unsplash.com/photo-1557683316-973673baf926',
-  'https://images.unsplash.com/photo-1566665797739-1674de7a421a',
-  'https://images.unsplash.com/photo-1579546929662-711aa81148cf'
+  'https://images.unsplash.com/photo-1557683316-973673baf926'
 ];
 
 interface Notification {
@@ -36,7 +37,6 @@ interface Notification {
   link?: string;
 }
 
-// Sample notifications data - in a real app, this would come from an API
 const sampleNotifications: Omit<Notification, 'id' | 'timestamp' | 'read'>[] = [
   {
     message: "Novo evento cultural no Marco Zero! Ganhe 50 Moedas Capiba participando.",
@@ -71,7 +71,8 @@ const PetGame: React.FC = () => {
     type: type as PetType,
     name: type || 'Pet',
     happiness: 50,
-    hunger: 50
+    hunger: 50,
+    outfit: ''
   });
   const [coins, setCoins] = useState(0);
   const [backgroundIndex, setBackgroundIndex] = useState(0);
@@ -80,7 +81,6 @@ const PetGame: React.FC = () => {
   const [activeChatBalloon, setActiveChatBalloon] = useState<string | null>(null);
 
   useEffect(() => {
-    // Initialize with sample notifications
     const initialNotifications = sampleNotifications.map(notification => ({
       ...notification,
       id: Date.now().toString() + Math.random(),
@@ -97,7 +97,6 @@ const PetGame: React.FC = () => {
       }));
     }, 10000);
 
-    // Simulate receiving new notifications periodically
     const notificationTimer = setInterval(() => {
       const randomNotification = sampleNotifications[Math.floor(Math.random() * sampleNotifications.length)];
       addNotification(randomNotification);
@@ -157,13 +156,18 @@ const PetGame: React.FC = () => {
     );
     setTimeout(() => setActiveChatBalloon(null), 5000);
 
-    // In a real app, this would navigate to the actual page
     if (notification.link) {
       console.log(`Navigating to: ${notification.link}`);
     }
   };
 
   const unreadCount = notifications.filter(n => !n.read).length;
+
+  const getPetImage = () => {
+    const baseType = pet.type.toLowerCase() as PetType;
+    const key = pet.outfit === 'glasses' ? `${baseType}-glasses` as IconKey : baseType;
+    return icons[key];
+  };
 
   return (
     <div 
@@ -249,7 +253,7 @@ const PetGame: React.FC = () => {
 
       <div className="relative">
         <img 
-          src={icons[pet.type.toLowerCase() as PetType]}
+          src={getPetImage()}
           alt={pet.type}
           className="pet-image"
         />
@@ -276,7 +280,7 @@ const PetGame: React.FC = () => {
         </button>
         <button className="clothes" onClick={() => navigate(`/pet/${type}/clothes`)}>
           <Shirt className="inline-block mr-2" size={20} />
-          Acessories
+          Clothes
         </button>
         <button className="bg-purple-500 hover:bg-purple-600" onClick={changeBackground}>
           <Image className="inline-block mr-2" size={20} />
